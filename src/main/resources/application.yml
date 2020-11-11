@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+
+spring:
+  profiles:
+    active: pro #默认为开发环境
+  banner:
+    charset: UTF-8
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3307/jiyi?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+  redis:
+    host: 47.94.110.49
+    jedis:
+      pool:
+        max-active: 18
+        max-idle: 18
+        max-wait: -1ms
+        min-idle: 10
+    port: 6379
+    
+minio:
+  endpoint: http://localhost:9090 #MinIO服务所在地址，上传文件的
+  bucketName: build #存储桶名称
+  accessKey: minioadmin #访问的key
+  secretKey: minioadmin #访问的秘钥   
+
+  
+# 日志配置
+logging:
+  level:
+    com.gdut.jiyi.mapper: debug
+    com.gdut.jiyi.mapperMore: debug
+  
+mybatis:
+  mapper-locations: classpath:mapper/*.xml,classpath:mapperMore/*.xml
+  type-aliases-package: com.gdut.jiyi.model
