@@ -8,7 +8,6 @@ import com.gdut.jiyi.mapperMore.UserMapperMore;
 import com.gdut.jiyi.model.User;
 import com.gdut.jiyi.server.UserService;
 import com.gdut.jiyi.util.*;
-import com.gdut.jiyi.vo.SimpleUserVo;
 import com.gdut.jiyi.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
@@ -18,9 +17,7 @@ import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 @Service("userService")
 @Slf4j
@@ -111,7 +108,7 @@ public class UserServiceImpl implements UserService {
 //                throw new ServiceException("手机验证码错误");
 //            }
 
-            int result = mapperMore.updatePasswordByPhone(phone,password);
+            int result = mapperMore.upDatePasswordByPhone(phone,password);
 
             if (result > 0){
                 return ResultUtil.successWitMsg("修改密码成功");
@@ -124,7 +121,7 @@ public class UserServiceImpl implements UserService {
             throw new ServiceException("参数传递错误");
         }
 
-        int result = mapperMore.updatePasswordByUserId(sessionUserId,password);
+        int result = mapperMore.upDatePasswordByUserId(sessionUserId,password);
         if (result > 0){
             return ResultUtil.successWitMsg("修改密码成功");
         }
@@ -162,7 +159,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResultVo updateUserInfo(User user, String cookie) {
+    public ResultVo upDateUserInfo(User user, String cookie) {
         String uerId = RedisUtil.getSessionUserId(hashOperations, cookie);
         if (RegUtil.isEmpty(uerId)){
             return ResultUtil.errorWithMsg("cookie失效");
@@ -180,7 +177,7 @@ public class UserServiceImpl implements UserService {
                 return ResultUtil.errorWithMsg("用户名已被其他用户占用");
             }
         }
-        int res = mapperMore.updateUserInfoById(user, uerId);
+        int res = mapperMore.upDateUserInfoById(user, uerId);
         if (res > 0){
             return ResultUtil.successWitMsg("修改成功");
         }

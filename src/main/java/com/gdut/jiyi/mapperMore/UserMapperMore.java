@@ -6,10 +6,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * @Author 古春波
- * @Description UserMapperMore
+ * @author 古春波
+ * @description UserMapperMore
  * @Date 2020/11/10 18:03
- * @Version 1.0
+ * @version 1.0
  **/
 public interface UserMapperMore {
 
@@ -38,10 +38,10 @@ public interface UserMapperMore {
 
     User findByUserId(String userId);
 
-    int updatePasswordByPhone(@Param("phone") String phone, @Param("password") String password);
+    int upDatePasswordByPhone(@Param("phone") String phone, @Param("password") String password);
 
 
-    int updatePasswordByUserId(@Param("userId") String userId,@Param("password")  String password);
+    int upDatePasswordByUserId(@Param("userId") String userId,@Param("password")  String password);
 
     String getPassByUserId(String uerId);
 
@@ -49,5 +49,5 @@ public interface UserMapperMore {
 
     User findByPhone(String phone);
 
-    int updateUserInfoById(@Param("user") User user, @Param("uid") String uerId);
+    int upDateUserInfoById(@Param("user") User user, @Param("uid") String uerId);
 }

@@ -12,7 +12,7 @@ public enum ResultCode {
     //200开头都是成功消息
     SUCCESS("200","success"),
 
-    UNAUTHORIZED("401", "暂未登录或token已经过期"),
+    UNauthorIZED("401", "暂未登录或token已经过期"),
     
     //300为其他结果
     WEIBO_BANG("300","请绑定手机号"),

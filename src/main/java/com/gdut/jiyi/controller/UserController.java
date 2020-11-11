@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -120,9 +121,9 @@ public class UserController {
     /**
      * 更新用户信息
      */
-    @PostMapping("/updateUserInfo")
-    public ResultVo updateUserInfo(@RequestBody User user, @CookieValue(CookieUtil.SESSION_COOKIE_NAME) String cookie){
-        return  userService.updateUserInfo(user,cookie);
+    @PostMapping("/upDateUserInfo")
+    public ResultVo upDateUserInfo(@RequestBody User user, @CookieValue(CookieUtil.SESSION_COOKIE_NAME) String cookie){
+        return  userService.upDateUserInfo(user,cookie);
     }
 
 

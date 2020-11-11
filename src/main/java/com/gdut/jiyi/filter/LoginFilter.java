@@ -41,36 +41,8 @@ public class LoginFilter implements Filter {
         passUrls.add("/user/login");
         passUrls.add("/user/getUserInfoById");
         passUrls.add("/user/resetPassByPhone");
-        passUrls.add("/code/imgCode");
-        passUrls.add("/code/imgCodeWithCookie/**");
-        passUrls.add("/code/phoneCode");
-        passUrls.add("/code/resetPassPhoneCode");
-        passUrls.add("/wb/code");
-        passUrls.add("/wb/token");
-        passUrls.add("/qq/code");
-        passUrls.add("/qq/token");
-        passUrls.add("/authorize/banding");
-        passUrls.add("/upload/getDefaultAvatar");
-        passUrls.add("/upload/uploadAvatar");
-        passUrls.add("/upload/uploadAvatar");
-        passUrls.add("/product/listPageCapableBuyProduct");
-        passUrls.add("/product/getCapableBuyProductSize");
-        passUrls.add("/product/searchCapableBuyProductSize");
-        passUrls.add("/product/searchPageCapableBuyProduct");
-        passUrls.add("/product/getProductDetailById");
-        passUrls.add("/product/listPageAllProduct");
-        passUrls.add("/product/getHotProduct");
-        passUrls.add("/product/getProductDetailByCategory");
-
-
-        passUrls.add("/alipay/doPay");
-        passUrls.add("/alipay/returnUrl");
-        passUrls.add("/alipay/notifyUrl");
-        passUrls.add("/product/getPhoto");
-
-        passUrls.add("/admin/login");
-        passUrls.add("/admin/add");
-        passUrls.add("/admin/checkLogin");
+        passUrls.add("cardBag/search");
+     
 
         passUrls.add("/swagger-ui.html/**");
         passUrls.add("/swagger-resources/**");
@@ -84,11 +56,6 @@ public class LoginFilter implements Filter {
         passUrls.add("/swagger-ui.html#");
         passUrls.add("/**/*.ico");
         passUrls.add("/**/*.png");
-        passUrls.add("/category/listAllNoRank");
-        passUrls.add("/category/listActive");
-
-
-
 
     }
 
@@ -110,7 +77,7 @@ public class LoginFilter implements Filter {
         //用来指定本次预检请求的有效期，单位为秒，在此期间不用发出另一条预检请求
         httpServletResponse.setHeader("Access-Control-Max-Age", "3600");
         //请求包含的字段内容，如有多个可用哪个逗号分隔如下
-        httpServletResponse.setHeader("Access-Control-Allow-Headers", "content-type,x-requested-with,Authorization, x-ui-request,lang");
+        httpServletResponse.setHeader("Access-Control-Allow-Headers", "content-type,x-requested-with,authorization, x-ui-request,lang");
         //访问控制允许凭据，true为允许
         httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
         // 浏览器是会先发一次options请求，如果请求通过，则继续发送正式的post请求
@@ -125,7 +92,7 @@ public class LoginFilter implements Filter {
 
         String sessionCookieVal = CookieUtil.getSessionCookieVal(httpServletRequest, httpServletResponse);
 
-        RedisUtil.updateSessionExpireTime( hashOperations,sessionCookieVal);
+        RedisUtil.upDateSessionExpireTime( hashOperations,sessionCookieVal);
         if(path.startsWith("/null")){
             path = path.substring(5);
         }
@@ -147,7 +114,7 @@ public class LoginFilter implements Filter {
     }
 
     private void needLoginResponse(HttpServletResponse httpServletResponse, String msg) throws IOException {
-        ResultVo resultVo = ResultUtil.UNAUTHORIZED(msg);
+        ResultVo resultVo = ResultUtil.UNauthorIZED(msg);
         JSONObject jsonObject = new JSONObject(resultVo);
         jsonObject.remove("success");
         httpServletResponse.setContentType("application/json;charset=UTF-8");

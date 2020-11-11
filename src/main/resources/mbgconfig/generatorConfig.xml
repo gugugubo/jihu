@@ -38,8 +38,8 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.gdut.jiyi.mapper"
                              targetProject="D:\我的项目\github项目\软工作业\jiyi\src\main\java"/>
         <!--生成全部表tableName设为%-->
-        <table tableName="%">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        <table tableName="card">
+            <generatedKey column="card_id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>

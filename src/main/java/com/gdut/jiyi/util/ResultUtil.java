@@ -65,8 +65,8 @@ public class ResultUtil {
     /**
      * 返回带有错误信息和数据的失败请求
      */
-    public static  ResultVo<String>  UNAUTHORIZED(String msg){
-        return new ResultVo<>(UNAUTHORIZED.getCode(),msg,"");
+    public static  ResultVo<String>  UNauthorIZED(String msg){
+        return new ResultVo<>(UNauthorIZED.getCode(),msg,"");
     }
     
     /**

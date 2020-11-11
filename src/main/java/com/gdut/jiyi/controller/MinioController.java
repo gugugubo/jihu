@@ -11,12 +11,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,13 +30,13 @@ import java.util.Date;
 public class MinioController {
 
     @Value("${minio.endpoint}")
-    private static String ENDPOINT;
+    private  String ENDPOINT;
     @Value("${minio.bucketName}")
-    private static String BUCKET_NAME;
+    private  String BUCKET_NAME;
     @Value("${minio.accessKey}")
-    private static String ACCESS_KEY;
+    private  String ACCESS_KEY;
     @Value("${minio.secretKey}")
-    private static String SECRET_KEY;
+    private  String SECRET_KEY;
 
     @ApiOperation("文件上传")
     @RequestMapping(value = "/upload", method = RequestMethod.POST)

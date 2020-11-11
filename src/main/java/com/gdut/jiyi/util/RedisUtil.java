@@ -104,7 +104,7 @@ public class RedisUtil {
      * @param hashOperations hashOperations
      * @param globalCookieValue globalCookieValue
      */
-    public static void updateSessionExpireTime(HashOperations<String,String,Object> hashOperations,String globalCookieValue){
+    public static void upDateSessionExpireTime(HashOperations<String,String,Object> hashOperations,String globalCookieValue){
         if (hashOperations == null || globalCookieValue == null){
             return ;
         }

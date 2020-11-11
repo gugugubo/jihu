@@ -35,12 +35,12 @@
         from user where user_id = #{userId}
     </select>
 
-    <update id="updatePasswordByPhone" >
-        update user set  password = #{password} where phone = #{phone}
+    <update id="upDatePasswordByPhone" >
+        upDate user set  password = #{password} where phone = #{phone}
     </update>
 
-    <update id="updatePasswordByUserId" >
-        update user set  password = #{password} where user_id = #{userId}
+    <update id="upDatePasswordByUserId" >
+        upDate user set  password = #{password} where user_id = #{userId}
     </update>
 
 
@@ -51,7 +51,7 @@
     </select>
 
     <update id="resetPassById" >
-        update user set
+        upDate user set
         password = #{password}
         where user_id = #{uerId}
     </update>
@@ -63,8 +63,8 @@
         from user where phone = #{phone}
     </select>
 
-    <update id="updateUserInfoById" >
-        update user set
+    <update id="upDateUserInfoById" >
+        upDate user set
         <if test="user.userName != null">
             user_name = #{user.userName},
         </if>

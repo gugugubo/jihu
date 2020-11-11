@@ -47,7 +47,7 @@ public interface UserService {
     /**
      * 更新用户信息
      */
-    ResultVo updateUserInfo(User user, String cookie);
+    ResultVo upDateUserInfo(User user, String cookie);
 
 
 }
